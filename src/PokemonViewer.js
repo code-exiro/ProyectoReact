@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './PokemonViewer.css';
 
 function PokemonViewer() {
   const [pokemonId, setPokemonId] = useState('');
@@ -29,14 +30,14 @@ function PokemonViewer() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="pokemonId">Enter Pokemon ID:</label>
+        <label htmlFor="pokemonId">Introduce el ID Pokemon:</label>
         <input
           id="pokemonId"
           type="number"
           value={pokemonId}
           onChange={(e) => setPokemonId(e.target.value)}
         />
-        <button type="submit">Fetch Pokemon</button>
+        <button type="submit">Buscar Pokemon</button>
       </form>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
