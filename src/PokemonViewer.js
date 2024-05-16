@@ -1,6 +1,6 @@
+import './PokemonViewer.css'
 import React, { useState } from 'react';
 import axios from 'axios';
-import './PokemonViewer.css';
 
 function PokemonViewer() {
   const [pokemonId, setPokemonId] = useState('');
@@ -27,17 +27,30 @@ function PokemonViewer() {
     fetchPokemon(pokemonId);
   };
 
+  const handleSavePokemon = () => {
+    const pokemonList = JSON.parse(localStorage.getItem('pokemons')) || [];
+    if (!pokemonList.some(pokemon => pokemon.id === pokemonData.id)) {
+      pokemonList.push({
+        id: pokemonData.id,
+        name: pokemonData.name,
+        image: pokemonData.sprites.front_default
+      });
+      localStorage.setItem('pokemons', JSON.stringify(pokemonList));
+    }
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="pokemonId">Introduce el ID Pokemon:</label>
+        <label htmlFor="pokemonId">Enter Pokemon ID:</label>
         <input
           id="pokemonId"
           type="number"
           value={pokemonId}
           onChange={(e) => setPokemonId(e.target.value)}
         />
-        <button type="submit">Buscar Pokemon</button>
+        <button type="submit">Fetch Pokemon</button>
+        {pokemonData && <button onClick={handleSavePokemon}>Save Pokemon</button>}
       </form>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}

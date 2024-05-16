@@ -1,12 +1,14 @@
+import './App.css';
 import React from 'react';
 import PokemonViewer from './PokemonViewer';
-import './App.css';
+import SavedPokemons from './SavedPokemons';
 
 function App() {
   return (
     <div className="App">
-      <h1>Busacador</h1>
+      <h1>Pokemon Viewer</h1>
       <PokemonViewer />
+      <SavedPokemons />
     </div>
   );
 }
