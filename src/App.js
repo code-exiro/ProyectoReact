@@ -7,14 +7,17 @@ import SavedPokemons from './SavedPokemons';
 function App() {
   return (
     <Router>
+      <h1>
+        POKEDEX
+      </h1>
       <div className="App">
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Inicio</Link>
             </li>
             <li>
-              <Link to="/saved">Saved Pokemons</Link>
+              <Link to="/saved">Pokemons Guardados</Link>
             </li>
           </ul>
         </nav>

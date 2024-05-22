@@ -42,17 +42,17 @@ function PokemonViewer() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="pokemonId">Enter Pokemon ID:</label>
+        <label htmlFor="pokemonId">Pokemon ID:</label>
         <input
           id="pokemonId"
           type="number"
           value={pokemonId}
           onChange={(e) => setPokemonId(e.target.value)}
         />
-        <button type="submit">Fetch Pokemon</button>
-        {pokemonData && <button onClick={handleSavePokemon}>Save Pokemon</button>}
+        <button type="submit">Ver Pokemon</button>
+        {pokemonData && <button onClick={handleSavePokemon}>Guardar Pokemon</button>}
       </form>
-      {loading && <p>Loading...</p>}
+      {loading && <p>Cargandooo...</p>}
       {error && <p>{error}</p>}
       {pokemonData && (
         <div>

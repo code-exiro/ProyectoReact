@@ -21,19 +21,19 @@ function SavedPokemons() {
 
   return (
     <div>
-      <h2>Saved Pokemons</h2>
+      <h2>Pokemons guardados</h2>
       {savedPokemons.length > 0 ? (
         <ul>
           {savedPokemons.map(pokemon => (
             <li key={pokemon.id}>
               {pokemon.name} (ID: {pokemon.id})
               <img src={pokemon.image} alt={pokemon.name} style={{ width: '50px' }} />
-              <button onClick={() => handleDeletePokemon(pokemon.id)}>Delete</button>
+              <button onClick={() => handleDeletePokemon(pokemon.id)}>Borrar</button>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No Pokemons saved.</p>
+        <p>No hay pokemones guardados.</p>
       )}
     </div>
   );
