@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PokemonViewer from './PokemonViewer';
-import SavedPokemons from './SavedPokemons';
+import GuardarPokemons from './SavedPokemons';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<PokemonViewer />} />
-          <Route path="/saved" element={<SavedPokemons />} />
+          <Route path="/saved" element={<GuardarPokemons />} />
         </Routes>
       </div>
     </Router>

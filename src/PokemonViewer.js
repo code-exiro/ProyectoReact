@@ -2,13 +2,13 @@ import './PokemonViewer.css'
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function PokemonViewer() {
+function VisualizarPoke() {
   const [pokemonId, setPokemonId] = useState('');
   const [pokemonData, setPokemonData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchPokemon = async (id) => {
+  const buscarPokemon = async (id) => {
     setLoading(true);
     setError(null);
     try {
@@ -22,9 +22,9 @@ function PokemonViewer() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const manejoEnvio = (e) => {
     e.preventDefault();
-    fetchPokemon(pokemonId);
+    buscarPokemon(pokemonId);
   };
 
   const handleSavePokemon = () => {
@@ -41,7 +41,7 @@ function PokemonViewer() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={manejoEnvio}>
         <label htmlFor="pokemonId">Pokemon ID:</label>
         <input
           id="pokemonId"
@@ -64,4 +64,4 @@ function PokemonViewer() {
   );
 }
 
-export default PokemonViewer;
+export default VisualizarPoke;
